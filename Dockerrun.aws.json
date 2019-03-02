@@ -1,0 +1,34 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "frontend",
+      "image": "ahmedhawas/frontend",
+      "hostname": "client",
+      "essenial": false
+    },
+    {
+      "name": "server",
+      "image": "ahmedhawas/server",
+      "hostname": "api"  ,
+      "essenial": false
+    },
+    {
+      "name": "worker",
+      "image": "ahmedhawas/worker",
+      "essenial": false
+    },
+    {
+      "name": "nginx",
+      "image": "ahmedhawas/nginx",
+      "essenial": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["frontend", "server"]
+    }
+  ]
+}
