@@ -3,20 +3,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t ahmedhawas/react-test -f ./frontend/Dockerfile.dev ./frontend
+  - docker build -t ahmedhawas/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run ahmedhawas/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t ahmedhawas/frontend ./frontend
+  - docker build -t ahmedhawas/client ./client
   - docker build -t ahmedhawas/nginx ./nginx
   - docker build -t ahmedhawas/server ./server
   - docker build -t ahmedhawas/worker ./worker
   # LOGIN to docker CLI to push images
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #  push images to docker hub
-  - docker push ahmedhawas/frontend
+  - docker push ahmedhawas/client
   - docker push ahmedhawas/nginx
   - docker push ahmedhawas/server
   - docker push ahmedhawas/worker

@@ -1,5 +1,5 @@
 Multi container application using Docker.
-1- Frontend uses ReactJS (Create react app).
+1- client uses ReactJS (Create react app).
 2- Server is a simple express server. Listens to redis for result and populates PG DB.
 3- Redis, Postgres containers.
 4- Nodejs worker listening to redis.

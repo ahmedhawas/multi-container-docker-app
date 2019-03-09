@@ -2,8 +2,8 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "frontend",
-      "image": "ahmedhawas/frontend",
+      "name": "client",
+      "image": "ahmedhawas/client",
       "hostname": "client",
       "essenial": false,
       "memory": 128
@@ -31,7 +31,7 @@
           "containerPort": 80
         }
       ],
-      "links": ["frontend", "server"],
+      "links": ["client", "server"],
       "memory": 128
     }
   ]
